@@ -11,6 +11,8 @@ import useTheme from './hooks/useTheme.tsx'
 import HeroCallToAction from './components/organisms/Hero/HeroCallToAction.tsx'
 import HeroImage from '~/assets/jpg/sample-hero.jpg'
 import { Button } from './components/atoms/Button.tsx'
+import { Link, useLoaderData } from '@remix-run/react'
+import { Button } from './components/atoms/Button.tsx'
 
 export const links: LinksFunction = () => {
 	return rootLinkElements
@@ -28,16 +30,20 @@ export default function App() {
 			<div className="flex h-screen flex-col justify-between ">
 				<HeaderWithSearch />
 				<div className="flex-1">
-					<main className="container grid h-full place-items-center ">
+					<main>
 						<h1 className="text-mega text-yellow-300 lg:text-2xl">
-							<div className="w-full py-16">
+							<div className="w-full">
 								<HeroCallToAction image={HeroImage} imageRight={true}>
-									<div className="flex flex-col gap-8 px-8">
-										<h2 className="text-h2">Welcome to Epic News</h2>
-										<p className="text-lg">
-											Keep up to date with the latest tech news.
-										</p>
-										<Button>Sign up</Button>
+									<div className="flex h-full flex-1 flex-col justify-between p-16">
+										<div className="flex flex-col gap-8">
+											<h2 className="text-h2">Welcome to Epic News</h2>
+											<p className="text-lg">
+												Keep up to date with the latest tech news.
+											</p>
+										</div>
+										<Button asChild variant="default" size="lg">
+											<Link to="/signup">Sign up</Link>
+										</Button>
 									</div>
 								</HeroCallToAction>
 							</div>{' '}
