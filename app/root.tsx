@@ -1,18 +1,16 @@
 import { type LinksFunction } from '@remix-run/node'
-import { useLoaderData } from '@remix-run/react'
+import { useLoaderData, Link } from '@remix-run/react'
+import HeroImage from '~/assets/jpg/sample-hero.jpg'
 import Document from '~/components/shared-layout/Document'
 import ThemeSwitch from '~/components/shared-layout/ThemeSwitch'
 import { useNonce } from '~/utils/nonce-provider.ts'
 import rootLinkElements from '~/utils/providers/rootLinkElements'
 import { type loader } from './__root.server'
+import { Button } from './components/atoms/Button.tsx'
 import FooterLogoCentre from './components/organisms/Footer/FooterLogoCentre.tsx'
 import HeaderWithSearch from './components/organisms/HeaderWithSearch'
-import useTheme from './hooks/useTheme.tsx'
 import HeroCallToAction from './components/organisms/Hero/HeroCallToAction.tsx'
-import HeroImage from '~/assets/jpg/sample-hero.jpg'
-import { Button } from './components/atoms/Button.tsx'
-import { Link, useLoaderData } from '@remix-run/react'
-import { Button } from './components/atoms/Button.tsx'
+import useTheme from './hooks/useTheme.tsx'
 
 export const links: LinksFunction = () => {
 	return rootLinkElements
