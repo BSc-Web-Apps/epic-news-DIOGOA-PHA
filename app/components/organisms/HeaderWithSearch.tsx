@@ -29,6 +29,13 @@ export default function HeaderWithSearch() {
 					>
 						About us
 					</Link>
+					<Link
+						prefetch="intent"
+						to="/contact-us"
+						className="text-sm font-semibold text-muted-foreground transition hover:text-foreground"
+					>
+						Contact us
+					</Link>
 				</div>
 
 				<div className="ml-auto hidden max-w-sm flex-1 sm:block">

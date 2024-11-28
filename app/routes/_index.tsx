@@ -1,6 +1,6 @@
-import ParallaxBackground from '#app/components/organisms/Hero/ParallaxBackground.tsx'
 import { type MetaFunction } from '@remix-run/node'
 import { Link } from '@remix-run/react'
+import ParallaxBackground from '#app/components/organisms/Hero/ParallaxBackground.tsx'
 import logo from '~/assets/svg/JerseyNewsLogo1.svg'
 import { Button } from '~/components/atoms/Button.tsx'
 
