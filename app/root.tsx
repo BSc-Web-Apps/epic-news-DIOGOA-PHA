@@ -1,6 +1,7 @@
 import { type LinksFunction } from '@remix-run/node'
 import { Outlet, useLoaderData } from '@remix-run/react'
 import { ParallaxProvider } from 'react-scroll-parallax'
+import { AuthenticityTokenProvider } from 'remix-utils/csrf/react'
 import Document from '~/components/shared-layout/Document'
 import ThemeSwitch from '~/components/shared-layout/ThemeSwitch'
 import { useNonce } from '~/utils/nonce-provider.ts'
@@ -9,6 +10,7 @@ import { type loader } from './__root.server'
 import FooterLogoCentre from './components/organisms/Footer/FooterLogoCentre.tsx'
 import HeaderWithSearch from './components/organisms/HeaderWithSearch'
 import useTheme from './hooks/useTheme.tsx'
+import { HoneypotProvider } from 'remix-utils/honeypot/react'
 /*import logo from '~/assets/png/epic-news-logo.png'*/
 
 export const links: LinksFunction = () => {
@@ -23,6 +25,8 @@ export default function App() {
 	const theme = useTheme()
 
 	return (
+		<AuthenticityTokenProvider token={data.csrfToken}>
+	    <HoneypotProvider {...data.honeyProps}>
 		<ParallaxProvider>
 			<Document nonce={nonce} theme={theme}>
 				<div className="flex h-screen flex-col justify-between ">
@@ -37,5 +41,7 @@ export default function App() {
 				</div>
 			</Document>
 		</ParallaxProvider>
+		</HoneypotProvider>
+		</AuthenticityTokenProvider>
 	)
 }
