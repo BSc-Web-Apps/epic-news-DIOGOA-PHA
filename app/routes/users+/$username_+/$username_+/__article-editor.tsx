@@ -124,15 +124,17 @@ export function ArticleEditor({
 							}}
 							errors={fields.content.errors}
 						/>
-						            <div className="pb-8">
-<Label>Category</Label>
-<SelectorGroup
-  options={categories.map(category => ({
-	value: category.id,
-	label: category.name,
-  }))}
-/>
-</div>
+						<div className="pb-8">
+						<Label>Category</Label>
+						<SelectorGroup
+						name="categoryId"
+						initialValue={article?.category?.id ?? ''}
+						options={categories.map(category => ({
+							value: category.id,
+							label: category.name,
+							}))}
+							/>
+							</div>
 						<div>
 							<Label>Images</Label>
 							<ul className="flex flex-col gap-4">
