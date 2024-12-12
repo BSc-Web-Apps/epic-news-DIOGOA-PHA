@@ -1,6 +1,4 @@
 import { Link } from '@remix-run/react'
-import { invariant } from '@epic-web/invariant'
-import { prisma } from '~/utils/db.server.ts'
 import {
 	MdOutlineBusinessCenter,
 	MdOutlineTheaters,
