@@ -1,16 +1,48 @@
 import { type MetaFunction } from '@remix-run/node'
+import { json, useLoaderData } from '@remix-run/react'
+import ArticleCard from '~/components/organisms/ArticleCard.tsx'
+import { prisma } from '~/utils/db.server.ts'
+/*import logo from '~/assets/png/epic-news-logo.png'*/
 
 export const meta: MetaFunction = () => [{ title: 'Epic News' }]
 
+export async function loader() {
+	const allArticles = await prisma.article.findMany({
+		where: { isPublished: true },
+		select: {
+			id: true,
+			title: true,
+			category: { select: { name: true } },
+			images: { select: { id: true } },
+		},
+	})
+
+	return json({ allArticles })
+}
+
 export default function Index() {
+	const { allArticles } = useLoaderData<typeof loader>()
+
 	return (
-		<main className="grid h-full place-items-center">
-			<h1 className="text-mega">
-				Hello from{' '}
-				<pre className="prose rounded-lg bg-primary p-6 text-primary-foreground">
-					app/routes/_index.tsx
-				</pre>
-			</h1>
-		</main>
+		<div className="container py-16">
+			<h2 className="mb-8 text-h2 font-normal">Latest news</h2>
+
+			<div className="col-span-2 grid grid-cols-2 gap-6 md:grid-cols-3 lg:grid-cols-4">
+				{allArticles.length > 0 ? (
+					allArticles.map((article, index) => (
+						<ArticleCard
+							key={article.id}
+							articleId={article.id}
+							title={article.title}
+							category={article.category?.name}
+							isFirstArticle={index === 0}
+							// imageId={article.images[0]?.id}
+						/>
+					))
+				) : (
+					<p>No articles found</p>
+				)}
+			</div>
+		</div>
 	)
 }
