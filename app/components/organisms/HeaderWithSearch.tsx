@@ -14,7 +14,7 @@ export default function HeaderWithSearch({
 	const searchBar = isOnSearchPage ? null : <SearchBar status="idle" />
 
 	return (
-		<header className="bg-primary py-6">
+		<header className="bg-amber-300 py-6">
 			<nav className="container flex flex-wrap items-center justify-between gap-4 sm:flex-nowrap md:gap-8">
 				<Link to="/">
 					<NavLogo />
