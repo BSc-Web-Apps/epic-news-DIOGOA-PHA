@@ -29,7 +29,7 @@ const Navbar = () => {
 
 					<div className="md:hidden">
 						<button
-							className="block text-secondary hover:text-white focus:text-white focus:outline-none"
+							className="hover:text-bg-red-900 block text-secondary focus:bg-red-900 focus:outline-none"
 							type="button"
 							onClick={() => setIsOpen(!isOpen)}
 						>
