@@ -4,7 +4,6 @@ import { ParallaxProvider } from 'react-scroll-parallax'
 import { AuthenticityTokenProvider } from 'remix-utils/csrf/react'
 import { HoneypotProvider } from 'remix-utils/honeypot/react'
 import Document from '~/components/shared-layout/Document'
-import ThemeSwitch from '~/components/shared-layout/ThemeSwitch'
 import { useNonce } from '~/utils/nonce-provider.ts'
 import rootLinkElements from '~/utils/providers/rootLinkElements'
 import { type loader } from './__root.server'
@@ -33,11 +32,6 @@ export default function App() {
 							<HeaderWithSearch isAdminUser={data.isAdminUser} />
 							<div className="flex-1">
 								<Outlet />
-							</div>
-							<div className="container flex justify-between pb-5">
-								<ThemeSwitch
-									userPreference={data.requestInfo.userPrefs.theme}
-								/>
 							</div>
 							<FooterLogoCentre companyName="Epic News " />
 						</div>

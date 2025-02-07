@@ -6,6 +6,7 @@ import LoginOrUserDropdown from './LoginOrUserDropdown'
 interface HeaderWithSearchProps {
 	isAdminUser: boolean
 }
+
 export default function HeaderWithSearch({
 	isAdminUser,
 }: HeaderWithSearchProps) {
@@ -19,11 +20,11 @@ export default function HeaderWithSearch({
 				<Link to="/">
 					<NavLogo />
 				</Link>
-				<div className="flex flex-1 items-center justify-center gap-8"> </div>
+				<div className="flex flex-1 items-center justify-center gap-8"></div>
 				{isAdminUser && (
 					<Link
 						to="/admin-review"
-						className="rounded-lg bg-green-900 px-4 py-2 text-sm font-semibold text-foreground transition hover:bg-green-800"
+						className="rounded-lg bg-green-900 px-4 py-2 text-sm font-semibold text-white transition hover:bg-green-800"
 					>
 						Admin Review
 					</Link>
@@ -31,23 +32,23 @@ export default function HeaderWithSearch({
 				<div className="flex flex-1 justify-center gap-8">
 					<Link
 						to="/news"
-						className="text-sm font-semibold text-muted-foreground transition hover:text-foreground"
+						className="rounded-md bg-red-900 text-sm font-semibold text-black transition hover:bg-red-800 hover:text-white"
 					>
 						News
 					</Link>
 					<Link
 						prefetch="intent"
 						to="/about-us"
-						className="text-sm font-semibold text-muted-foreground transition hover:text-foreground"
+						className="rounded-md bg-red-900 text-sm font-semibold text-black transition hover:bg-red-800 hover:text-white"
 					>
-						About us
+						About Us
 					</Link>
 					<Link
 						prefetch="intent"
 						to="/contact-us"
-						className="text-sm font-semibold text-muted-foreground transition hover:text-foreground"
+						className="rounded-md bg-red-900 text-sm font-semibold text-black transition hover:bg-red-800 hover:text-white"
 					>
-						Contact us
+						Contact Us
 					</Link>
 				</div>
 
